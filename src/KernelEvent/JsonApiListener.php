@@ -69,7 +69,7 @@ class JsonApiListener implements EventSubscriberInterface
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
-        if ($request->attributes->get('exception') instanceof FlattenException) {
+        if ($request->attributes->get('exception') instanceof \Exception) {
             return;
         }
         if (!$request->attributes->get(RouteLoader::ATTRIBUTE, false)) {
@@ -113,6 +113,7 @@ class JsonApiListener implements EventSubscriberInterface
             $event->setResponse(new JsonResponse([
                 'errors' => [
                     'title' => 'Undefined type',
+                    'message' => $e->getMessage(),
                     'status' => Response::HTTP_BAD_REQUEST,
 
                 ]
