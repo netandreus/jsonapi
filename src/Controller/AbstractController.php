@@ -3,7 +3,7 @@
 namespace JsonApi\Controller;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use JsonApi\Context\ContextInterface;
 use JsonApi\Metadata\UndefinedMetadataException;

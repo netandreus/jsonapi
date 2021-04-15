@@ -2,7 +2,7 @@
 
 namespace JsonApi\Metadata;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use JsonApi\Router\ApiUrlGeneratorInterface;
 use JsonApi\Router\RouteLoader;

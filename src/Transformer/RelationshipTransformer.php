@@ -2,7 +2,7 @@
 
 namespace JsonApi\Transformer;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use JsonApi\DataStorage\DataStorageInterface;
 use JsonApi\Metadata\Metadata;
 use JsonApi\Metadata\MetadataInterface;
