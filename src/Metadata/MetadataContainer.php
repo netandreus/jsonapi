@@ -2,8 +2,9 @@
 
 namespace JsonApi\Metadata;
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use JsonApi\Router\ApiUrlGeneratorInterface;
 use JsonApi\Router\RouteLoader;
 use JsonApi\SecurityStrategy\SecurityStrategyBuilderPool;
@@ -54,8 +55,9 @@ class MetadataContainer implements MetadataContainerInterface
 
     /**
      * @inheritDoc
+     * @return ObjectManager|EntityManager
      */
-    public function getEntityManager(string $class): ObjectManager
+    public function getEntityManager(string $class)
     {
         return $this->managerRegistry->getManagerForClass($class);
     }

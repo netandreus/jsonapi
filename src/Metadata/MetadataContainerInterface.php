@@ -2,7 +2,8 @@
 
 namespace JsonApi\Metadata;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 use JsonApi\Router\ApiUrlGeneratorInterface;
 use JsonApi\SecurityStrategy\SecurityStrategyInterface;
 use JsonApi\Transformer\TransformerPoolInterface;
@@ -14,9 +15,9 @@ interface MetadataContainerInterface extends TransformerPoolInterface, ApiUrlGen
 {
     /**
      * @param string $class
-     * @return ObjectManager
+     * @return ObjectManager|EntityManager
      */
-    public function getEntityManager(string $class): ObjectManager;
+    public function getEntityManager(string $class);
 
     /**
      * @param string $strategy

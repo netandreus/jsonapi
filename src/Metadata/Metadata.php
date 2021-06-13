@@ -2,8 +2,9 @@
 
 namespace JsonApi\Metadata;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use JsonApi\SecurityStrategy\SecurityStrategyInterface;
@@ -546,8 +547,9 @@ class Metadata implements MetadataInterface
 
     /**
      * @inheritDoc
+     * @return ObjectManager|EntityManager
      */
-    public function getEntityManager(): ObjectManager
+    public function getEntityManager()
     {
         if ($this->em === null) {
             $this->em = $this->container->getEntityManager($this->class);

@@ -2,8 +2,8 @@
 
 namespace JsonApi\Metadata;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use JsonApi\SecurityStrategy\SecurityStrategyInterface;
 use JsonApi\Transformer\InvalidArgumentException;
@@ -193,9 +193,9 @@ interface MetadataInterface extends SecurityStrategyInterface, \JsonSerializable
     public function find(string $id);
 
     /**
-     * @return ObjectManager
+     * @return ObjectManager|EntityManager
      */
-    public function getEntityManager(): ObjectManager;
+    public function getEntityManager();
 
     /**
      * @return ObjectRepository
